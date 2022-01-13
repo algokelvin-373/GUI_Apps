@@ -17,9 +17,58 @@ public class GUI_Skoring {
     private JPanel panelBtnResetSkor;
     private JButton btnResetSkor;
 
-    public JPanel getPanel() {
+    private int skorA = 0, skorB = 0;
+
+    GUI_Skoring() {
+        setEnabledBtn(true, true);
+    }
+
+    JPanel getPanel() {
         panel.setPreferredSize(new Dimension(300, 300));
         return panel;
+    }
+
+    void setActionPerformedBtnSkorTimA() {
+        skorA++;
+        txtSkorTimA.setText(Integer.toString(skorA));
+    }
+
+    void setActionPerformedBtnSkorTimB() {
+        skorB++;
+        txtSkorTimB.setText(Integer.toString(skorB));
+    }
+
+    void setActionPerformedBtnSkorAkhir() {
+        setEnabledBtn(false, false);
+    }
+
+    void setActionPerformedBtnResetSkor() {
+        skorA = 0;
+        skorB = 0;
+        txtSkorTimA.setText(Integer.toString(skorA));
+        txtSkorTimB.setText(Integer.toString(skorB));
+        setEnabledBtn(true, true);
+    }
+
+    private void setEnabledBtn(Boolean enA, Boolean enB) {
+        btnSkorTimA.setEnabled(enA);
+        btnSkorTimB.setEnabled(enB);
+    }
+
+    JButton getBtnSkorTimA() {
+        return btnSkorTimA;
+    }
+
+    JButton getBtnSkorTimB() {
+        return btnSkorTimB;
+    }
+
+    JButton getBtnSkorAkhir() {
+        return btnSkorAkhir;
+    }
+
+    JButton getBtnResetSkor() {
+        return btnResetSkor;
     }
 
 }
